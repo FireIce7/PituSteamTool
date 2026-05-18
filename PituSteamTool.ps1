@@ -36,8 +36,8 @@ if (-not $isAdmin) {
 
 # --- Configuracao ---------------------------------------------------------------
 # URLs diretas dos binarios 32-bit (arquivados no GitHub)
-$Steam32Url    = "https://github.com/madoiscool/lt_api_links/releases/download/unsteam/latest32bitsteam.zip"
-$MillenniumUrl = "https://github.com/madoiscool/lt_api_links/releases/download/unsteam/luatoolsmilleniumbuild.zip"
+$Steam32Url    = "https://github.com/FireIce7/PituSteamTool/releases/download/v3.0/latest32bitsteam.zip"
+$MillenniumUrl = "https://github.com/FireIce7/PituSteamTool/releases/download/v3.0/luatoolsmilleniumbuild.zip"
 
 # --- Funcoes de download/extracao (self-contained) ------------------------------
 

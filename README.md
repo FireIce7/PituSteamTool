@@ -63,18 +63,18 @@ Opção nuclear. Apaga **tudo** na pasta da Steam exceto os itens abaixo, depois
 
 ## 🌐 Download Source | Fonte de Download
 
-The 32-bit binaries are **not** custom or modified. They are archived versions of the official Steam client from before Valve's 64-bit migration, hosted on GitHub.
+The 32-bit binaries are **not** custom or modified. They are archived versions of the official Steam client from before Valve's 64-bit migration. They are signed by Valve Corp. and are now hosted directly in this repository's releases.
 
-Os binários 32-bit **não** são modificados. São versões arquivadas do cliente oficial da Steam de antes da migração 64-bit da Valve, hospedados no GitHub.
+Os binários 32-bit **não** são modificados. São versões arquivadas do cliente oficial da Steam de antes da migração 64-bit da Valve. Possuem assinatura digital da Valve Corp. e agora estão hospedados diretamente nas releases deste repositório.
 
 | File | Source |
 |------|--------|
-| `latest32bitsteam.zip` | [GitHub — madoiscool/lt_api_links](https://github.com/madoiscool/lt_api_links/releases/tag/unsteam) |
-| `luatoolsmilleniumbuild.zip` | [GitHub — madoiscool/lt_api_links](https://github.com/madoiscool/lt_api_links/releases/tag/unsteam) |
+| `latest32bitsteam.zip` | [GitHub — FireIce7/PituSteamTool (v3.0)](https://github.com/FireIce7/PituSteamTool/releases/tag/v3.0) |
+| `luatoolsmilleniumbuild.zip` | [GitHub — FireIce7/PituSteamTool (v3.0)](https://github.com/FireIce7/PituSteamTool/releases/tag/v3.0) |
 
-Both files come from the same GitHub release. The script downloads directly from `github.com` — no third-party servers.
+Both files are stored in the GitHub release of this repository. The script downloads directly from `github.com` — no third-party servers.
 
-Ambos os arquivos vêm da mesma release no GitHub. O script baixa direto do `github.com` — sem servidores terceiros.
+Ambos os arquivos estão armazenados na release do GitHub deste repositório. O script baixa direto do `github.com` — sem servidores terceiros.
 
 ---
 
