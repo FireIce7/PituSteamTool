@@ -1,88 +1,96 @@
 # 🎮 PituSteamTool
 
-> Switch Steam between 32-bit and 64-bit. | Alterne a Steam entre 32-bit e 64-bit.
-
-## ⚡ Usage | Como usar
-
-Open PowerShell and paste: | Abra o PowerShell e cole:
+> Switch Steam between 32-bit and 64-bit in seconds.
 
 ```powershell
 iwr -useb "https://raw.githubusercontent.com/FireIce7/PituSteamTool/main/PituSteamTool.ps1" | iex
 ```
 
-🔒 Admin is requested automatically via UAC. | Admin é solicitado automaticamente via UAC.
+🔒 Admin is requested automatically via UAC.
 
 ---
 
-## 📥 [1] Downgrade (64-bit → 32-bit)
+## 🇺🇸 English
 
-Downloads 32-bit Steam binaries and overwrites the current 64-bit files. Creates `steam.cfg` (read-only) to block Steam from auto-updating back to 64-bit. If Millennium is installed, it also downloads a compatible 32-bit build.
+### [1] Downgrade (64→32-bit)
+Downloads official archived 32-bit Steam binaries and overwrites the current 64-bit files. Creates `steam.cfg` (read-only) to prevent Steam from auto-updating back.
 
-Baixa binários 32-bit da Steam e sobrescreve os arquivos 64-bit atuais. Cria `steam.cfg` (somente leitura) para impedir a Steam de atualizar de volta para 64-bit. Se o Millennium estiver instalado, também baixa um build compatível.
+**Steps:** Close Steam → Download binaries → Extract → Lock updates → Verify PE header → Launch
 
-**🔧 Steps | Passos:**
-1. 🔪 Kills all Steam processes | Encerra todos os processos da Steam
-2. 📦 Downloads `latest32bitsteam.zip` (~30MB) | Baixa `latest32bitsteam.zip` (~30MB)
-3. 📂 Extracts over the Steam folder (overwrites) | Extrai sobre a pasta da Steam (sobrescreve)
-4. 🔐 Creates `steam.cfg` with update lock (read-only) | Cria `steam.cfg` com trava de update (somente leitura)
-5. 🔍 Verifies architecture via PE header | Verifica arquitetura via PE header
-6. 🚀 Launches Steam with `-clearbeta` | Abre a Steam com `-clearbeta`
+### [2] Upgrade (32→64-bit)
+Removes the downgrade lock and clears the package cache. Steam self-updates to 64-bit on next launch. No files are deleted — Steam handles it.
 
----
+**Steps:** Close Steam → Rename steam.cfg → Clear cache → Launch
 
-## 📤 [2] Upgrade (32-bit → 64-bit)
+### [3] Deep Repair
+Deletes **everything** except `Steam.exe`, `steamapps/`, `userdata/`, and `config/`. Steam rebuilds from scratch. Use when Upgrade fails.
 
-Removes the downgrade lock and clears the package cache so Steam can self-update back to 64-bit. Does **not** delete any binaries — Steam handles the update itself.
-
-Remove a trava de downgrade e limpa o cache de pacotes para a Steam se atualizar sozinha para 64-bit. **Não** apaga binários — a Steam cuida da atualização.
-
-**🔧 Steps | Passos:**
-1. 🔪 Kills Steam | Encerra a Steam
-2. 📝 Renames `steam.cfg` → `steam.cfg.backup` | Renomeia `steam.cfg` → `steam.cfg.backup`
-3. 🗑️ Removes `package/beta` file | Remove arquivo `package/beta`
-4. 🧹 Clears all files in `package/` cache | Limpa todos os arquivos do cache `package/`
-5. 🚀 Launches Steam (it downloads 64-bit update) | Abre a Steam (ela baixa a atualização 64-bit)
+### 📋 Requirements
+- Windows 10/11 · PowerShell 5.1+
 
 ---
 
-## 🛠️ [3] Deep Repair | Reparo Profundo
+## 🇧🇷 Português
 
-Nuclear option. Deletes **everything** in the Steam folder except the items below, then launches Steam to rebuild from scratch. Use this when Upgrade doesn't work.
+### [1] Downgrade (64→32-bit)
+Baixa binários oficiais 32-bit da Steam (arquivados) e sobrescreve os 64-bit. Cria `steam.cfg` (somente leitura) pra impedir a Steam de atualizar de volta.
 
-Opção nuclear. Apaga **tudo** na pasta da Steam exceto os itens abaixo, depois abre a Steam para reconstruir do zero. Use quando o Upgrade não funcionar.
+**Passos:** Fecha Steam → Baixa binários → Extrai → Trava updates → Verifica PE header → Abre
 
-**✅ Preserved | Preservado:**
-| Item | EN | PT-BR |
-|------|-----|-------|
-| `Steam.exe` | The launcher | O executável |
-| `steamapps/` | Installed games | Jogos instalados |
-| `userdata/` | Saves and settings | Saves e configurações |
-| `config/` | Logged accounts | Contas logadas |
+### [2] Upgrade (32→64-bit)
+Remove a trava e limpa o cache de pacotes. A Steam se atualiza sozinha pra 64-bit. Nenhum arquivo é deletado — a Steam cuida disso.
 
----
+**Passos:** Fecha Steam → Renomeia steam.cfg → Limpa cache → Abre
 
-## 🌐 Download Source | Fonte de Download
+### [3] Reparo Profundo
+Apaga **tudo** exceto `Steam.exe`, `steamapps/`, `userdata/` e `config/`. A Steam reconstroi do zero. Use quando o Upgrade falhar.
 
-The 32-bit binaries are **not** custom or modified. They are archived versions of the official Steam client from before Valve's 64-bit migration. They are signed by Valve Corp. and are now hosted directly in this repository's releases.
-
-Os binários 32-bit **não** são modificados. São versões arquivadas do cliente oficial da Steam de antes da migração 64-bit da Valve. Possuem assinatura digital da Valve Corp. e agora estão hospedados diretamente nas releases deste repositório.
-
-| File | Source |
-|------|--------|
-| `latest32bitsteam.zip` | [GitHub — FireIce7/PituSteamTool (v3.0)](https://github.com/FireIce7/PituSteamTool/releases/tag/v3.0) |
-| `luatoolsmilleniumbuild.zip` | [GitHub — FireIce7/PituSteamTool (v3.0)](https://github.com/FireIce7/PituSteamTool/releases/tag/v3.0) |
-
-Both files are stored in the GitHub release of this repository. The script downloads directly from `github.com` — no third-party servers.
-
-Ambos os arquivos estão armazenados na release do GitHub deste repositório. O script baixa direto do `github.com` — sem servidores terceiros.
+### 📋 Requisitos
+- Windows 10/11 · PowerShell 5.1+
 
 ---
 
-## 📋 Requirements | Requisitos
+## 🇷🇺 Russkiy
 
-- 🖥️ Windows 10/11
-- ⚙️ PowerShell 5.1+
+### [1] Downgrade (64→32-bit)
+Skachivayет ofitsial'nyye arkhivnyye 32-bit fayly Steam i perezapisyvayet tekushchiye 64-bit. Sozdayot `steam.cfg` (tol'ko chteniye) dlya blokirovki avtoobnovleniya.
 
-## 📜 License | Licença
+**Shagi:** Zakryt' Steam → Skachat' fayly → Raspakovat' → Zablokirovat' obnovleniya → Proverit' PE header → Zapustit'
 
-Free for personal use. Made by **Pitu**. | Livre para uso pessoal. Feito por **Pitu**.
+### [2] Upgrade (32→64-bit)
+Snimayet blokirovku downgrade i ochishchayet kesh paketov. Steam obnovlyayetsya sama do 64-bit. Nikakiye fayly ne udalyayutsya.
+
+**Shagi:** Zakryt' Steam → Pereimenovat' steam.cfg → Ochistit' kesh → Zapustit'
+
+### [3] Glubokoye vosstanovleniye
+Udalayet **vsyo** krome `Steam.exe`, `steamapps/`, `userdata/` i `config/`. Steam perestraivayet vsyo s nulya.
+
+### 📋 Trebovaniya
+- Windows 10/11 · PowerShell 5.1+
+
+---
+
+## 🔐 Binary Verification | Verificação | Proverka
+
+The 32-bit binaries hosted in this repository are **official Valve files** archived before the 64-bit migration. They are **not modified** in any way.
+
+**✅ Digital signature verified via Windows Authenticode:**
+
+| File | Signer | Status |
+|------|--------|--------|
+| `steam.exe` | `CN=Valve Corp., O=Valve Corp., L=Bellevue, S=Washington, C=US` | ✅ Valid |
+| `steamclient.dll` | `CN=Valve Corp., O=Valve Corp., L=Bellevue, S=Washington, C=US` | ✅ Valid |
+| `steamclient64.dll` | `CN=Valve Corp., O=Valve Corp., L=Bellevue, S=Washington, C=US` | ✅ Valid |
+
+You can verify this yourself:
+```powershell
+Get-AuthenticodeSignature "C:\Program Files (x86)\Steam\steam.exe"
+```
+
+**Source:** All binaries are hosted in this repository's [GitHub Release (v3.0)](https://github.com/FireIce7/PituSteamTool/releases/tag/v3.0). The script downloads directly from `github.com` — no third-party servers.
+
+---
+
+## 📜 License
+
+Free for personal use. Made by **Pitu**.
