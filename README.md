@@ -61,18 +61,20 @@ Opção nuclear. Apaga **tudo** na pasta da Steam exceto os itens abaixo, depois
 
 ---
 
-## 🌐 Download Sources | Fontes de Download
+## 🌐 Download Source | Fonte de Download
 
-The 32-bit binaries are **not** custom or modified. They are archived versions of the official Steam client preserved before Valve's 64-bit migration.
+The 32-bit binaries are **not** custom or modified. They are archived versions of the official Steam client from before Valve's 64-bit migration, hosted on GitHub.
 
-Os binários 32-bit **não** são customizados ou modificados. São versões arquivadas do cliente oficial da Steam, preservadas antes da migração 64-bit da Valve.
+Os binários 32-bit **não** são modificados. São versões arquivadas do cliente oficial da Steam de antes da migração 64-bit da Valve, hospedados no GitHub.
 
-| File | Primary | Fallback |
-|------|---------|----------|
-| `latest32bitsteam.zip` | [GitHub (madoiscool/lt_api_links)](https://github.com/madoiscool/lt_api_links/releases/download/unsteam/latest32bitsteam.zip) | [files.luatools.work](http://files.luatools.work/OneOffFiles/latest32bitsteam.zip) |
-| `luatoolsmilleniumbuild.zip` | [GitHub (madoiscool/lt_api_links)](https://github.com/madoiscool/lt_api_links/releases/download/unsteam/luatoolsmilleniumbuild.zip) | [files.luatools.work](http://files.luatools.work/OneOffFiles/luatoolsmilleniumbuild.zip) |
+| File | Source |
+|------|--------|
+| `latest32bitsteam.zip` | [GitHub — madoiscool/lt_api_links](https://github.com/madoiscool/lt_api_links/releases/tag/unsteam) |
+| `luatoolsmilleniumbuild.zip` | [GitHub — madoiscool/lt_api_links](https://github.com/madoiscool/lt_api_links/releases/tag/unsteam) |
 
-If the primary URL fails, the script automatically tries the fallback. | Se a URL primária falhar, o script tenta o fallback automaticamente.
+Both files come from the same GitHub release. The script downloads directly from `github.com` — no third-party servers.
+
+Ambos os arquivos vêm da mesma release no GitHub. O script baixa direto do `github.com` — sem servidores terceiros.
 
 ---
 

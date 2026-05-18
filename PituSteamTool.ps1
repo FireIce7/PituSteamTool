@@ -35,11 +35,9 @@ if (-not $isAdmin) {
 }
 
 # --- Configuracao ---------------------------------------------------------------
-# URLs diretas dos binarios 32-bit (sem depender de script externo)
-$Steam32Url         = "https://github.com/madoiscool/lt_api_links/releases/download/unsteam/latest32bitsteam.zip"
-$Steam32FallbackUrl = "http://files.luatools.work/OneOffFiles/latest32bitsteam.zip"
-$MillenniumUrl         = "https://github.com/madoiscool/lt_api_links/releases/download/unsteam/luatoolsmilleniumbuild.zip"
-$MillenniumFallbackUrl = "http://files.luatools.work/OneOffFiles/luatoolsmilleniumbuild.zip"
+# URLs diretas dos binarios 32-bit (arquivados no GitHub)
+$Steam32Url    = "https://github.com/madoiscool/lt_api_links/releases/download/unsteam/latest32bitsteam.zip"
+$MillenniumUrl = "https://github.com/madoiscool/lt_api_links/releases/download/unsteam/luatoolsmilleniumbuild.zip"
 
 # --- Funcoes de download/extracao (self-contained) ------------------------------
 
@@ -92,21 +90,15 @@ function Download-WithProgress {
     }
 }
 
-function Download-WithFallback {
-    param([string]$Primary, [string]$Fallback, [string]$OutFile, [string]$Label)
+function Download-File {
+    param([string]$Url, [string]$OutFile, [string]$Label)
     Write-Host "     Baixando $Label..." -ForegroundColor $cMuted
     try {
-        Download-WithProgress -Url $Primary -OutFile $OutFile
+        Download-WithProgress -Url $Url -OutFile $OutFile
         return $true
     } catch {
-        Write-Status "!" "URL primaria falhou, tentando fallback..." $cWarning
-        try {
-            Download-WithProgress -Url $Fallback -OutFile $OutFile
-            return $true
-        } catch {
-            Write-Status "$CROSS" "Ambas URLs falharam: $_" $cDanger
-            return $false
-        }
+        Write-Status "$CROSS" "Falha no download: $_" $cDanger
+        return $false
     }
 }
 
@@ -482,7 +474,7 @@ function Fazer-Downgrade {
     $tempZip = Join-Path $env:TEMP "latest32bitsteam.zip"
     if (Test-Path $tempZip) { Remove-Item $tempZip -Force -ErrorAction SilentlyContinue }
 
-    $dlOk = Download-WithFallback -Primary $Steam32Url -Fallback $Steam32FallbackUrl -OutFile $tempZip -Label "Steam 32-bit"
+    $dlOk = Download-File -Url $Steam32Url -OutFile $tempZip -Label "Steam 32-bit"
     if (-not $dlOk) {
         Write-Status "$CROSS" "Falha no download dos binarios." $cDanger
         Pausar
@@ -515,7 +507,7 @@ function Fazer-Downgrade {
         $tempMill = Join-Path $env:TEMP "luatoolsmilleniumbuild.zip"
         if (Test-Path $tempMill) { Remove-Item $tempMill -Force -ErrorAction SilentlyContinue }
 
-        $dlOk2 = Download-WithFallback -Primary $MillenniumUrl -Fallback $MillenniumFallbackUrl -OutFile $tempMill -Label "Millennium build"
+        $dlOk2 = Download-File -Url $MillenniumUrl -OutFile $tempMill -Label "Millennium build"
         if ($dlOk2) {
             try {
                 Extract-ZipSafe -ZipPath $tempMill -Destination $SteamPath
