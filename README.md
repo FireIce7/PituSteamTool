@@ -7,11 +7,11 @@ iwr -useb "https://raw.githubusercontent.com/FireIce7/PituSteamTool/main/PituSte
 ```
 
 🔒 Admin is requested automatically via UAC.
-🌐 Language selection at startup: 🇺🇸 English · 🇧🇷 Português · 🇷🇺 Русский
+🌐 Language selection at startup: English · Português · Русский
 
 ---
 
-## 🇺🇸 English
+## ![US](https://flagcdn.com/24x18/us.png) English
 
 ### [1] Downgrade (64→32-bit)
 Downloads official archived 32-bit Steam binaries and overwrites the current 64-bit files. Creates `steam.cfg` (read-only) to prevent Steam from auto-updating back.
@@ -24,7 +24,7 @@ Deletes **everything** except `Steam.exe`, `steamapps/`, `userdata/`, and `confi
 
 ---
 
-## 🇧🇷 Português
+## ![BR](https://flagcdn.com/24x18/br.png) Português
 
 ### [1] Downgrade (64→32-bit)
 Baixa binários oficiais 32-bit da Steam (arquivados) e sobrescreve os 64-bit. Cria `steam.cfg` (somente leitura) pra impedir a Steam de atualizar de volta.
@@ -37,7 +37,7 @@ Apaga **tudo** exceto `Steam.exe`, `steamapps/`, `userdata/` e `config/`. A Stea
 
 ---
 
-## 🇷🇺 Русский
+## ![RU](https://flagcdn.com/24x18/ru.png) Русский
 
 ### [1] Downgrade (64→32-bit)
 Скачивает официальные архивные 32-bit файлы Steam и перезаписывает текущие 64-bit. Создаёт `steam.cfg` (только чтение) для блокировки автообновления.
