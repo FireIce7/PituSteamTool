@@ -7,7 +7,7 @@ iwr -useb "https://raw.githubusercontent.com/FireIce7/PituSteamTool/main/PituSte
 ```
 
 🔒 Admin is requested automatically via UAC.
-🌐 Language selection at startup: English · Português · Русский
+🌐 Language selection at startup: 🇺🇸 English · 🇧🇷 Português · 🇷🇺 Русский
 
 ---
 
@@ -52,7 +52,7 @@ Apaga **tudo** exceto `Steam.exe`, `steamapps/`, `userdata/` e `config/`. A Stea
 
 ## 🔐 Binary Verification
 
-The 32-bit binaries hosted in this repository are **official Valve files** archived before the 64-bit migration. They are **not modified** in any way.
+The 32-bit binaries in this repo are **official Valve files** archived before the 64-bit migration. Not modified in any way.
 
 **✅ Digital signature verified via Windows Authenticode:**
 
@@ -67,7 +67,7 @@ Verify yourself:
 Get-AuthenticodeSignature "C:\Program Files (x86)\Steam\steam.exe"
 ```
 
-**Source:** All binaries are in this repo's [GitHub Release (v3.0)](https://github.com/FireIce7/PituSteamTool/releases/tag/v3.0). Downloads come directly from `github.com` — no third-party servers.
+All binaries are in this repo's [GitHub Release (v3.0)](https://github.com/FireIce7/PituSteamTool/releases/tag/v3.0). Downloads come directly from `github.com`, no third-party servers.
 
 ---
 
